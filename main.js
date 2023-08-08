@@ -1,5 +1,7 @@
 
-let cantidad = prompt("¿cuantas personas son?");
+alert("Este diario sirve para registrar a un grupo de personas y ver si en el lapso de 30 dias pudieron generar los habitos que se hayan propuesto. Además, si la persona no pudo cumplir su hábito por más de 22 días, el sistema se lo hará saber. En resumen, este código permite ingresar los hábitos cumplidos por varias personas durante 30 días y proporciona un resumen visual en la página web y en alertas emergentes para mostrar cómo se están cumpliendo esos hábitos. Las personas que no cumplan con suficientes hábitos verán un mensaje motivador en rojo.")
+
+let cantidad = parseInt(prompt("¿Cuántas personas son?"));
 let personasTotales = [];
 
 for (i = 0; i < cantidad; i++) {
@@ -8,20 +10,19 @@ for (i = 0; i < cantidad; i++) {
 
 alert("A continuación use S o s para indicar que cumplió con su hábito. Caso contrario, indique N,n o deje vacío")
 
-const chequeoHabito = (nombre,p)=>{
+const chequeoHabito = (persona,p)=>{
 	let habito = prompt(`${personasTotales[p][0]} cumpliste tu habito el día de hoy - DIA ${(i+1)}?`);
-	if (habito == "s" || habito == "S") {
-	    personasTotales[p][1]++;
+	if (habito == "s" || habito == "S" || habito =="ss") {
+	   return personasTotales[p][1]++;
 	}
 }
 
 
 for (i = 0; i < 30; i++) {
 	for (persona in personasTotales) {
-	chequeoHabito(personasTotales[persona][0],persona);
+	    chequeoHabito(personasTotales[persona][0],persona);
 	}
 }
-
 
 for (persona in personasTotales) {
 	let resultado = `${personasTotales[persona][0]}:<br>
@@ -43,11 +44,4 @@ for (persona in personasTotales) {
         resultadoAlert += "\n\n";
     }
     alert(resultadoAlert);
-}
-
-
-
-
-
-
-
+}  
